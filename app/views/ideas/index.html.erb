@@ -1,0 +1,13 @@
+<div class="ideas">
+    <% @ideas.each do |idea| %>
+    <div class="idea">
+        <div class="ideatitle"><%= idea.title %></div>
+        <div class="ideadescription"><%= idea.description %></div>
+        <div class="ideafooter">
+            <div class="ideaauthor"></div>
+            <div class="idealikes"></div>
+            <div class="ideanumbers"></div>
+        </div>
+    </div>
+    <% end %>
+</div>

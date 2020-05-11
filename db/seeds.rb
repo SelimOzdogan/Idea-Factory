@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Idea.destroy_all
+
+5.times do
+  p = Idea.create({
+    title: Faker::Lorem.question,
+    description: Faker::Hacker.say_something_smart,
+  })
+end
+
+puts "Created #{Idea.count} Posts"
