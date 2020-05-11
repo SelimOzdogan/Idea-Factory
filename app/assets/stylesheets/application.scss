@@ -16,6 +16,27 @@
 
  @import "bootstrap";
 
+.linksNav{
+   display: flex;
+   justify-content: space-between;
+   width: -webkit-fill-available;
+   align-items: flex-end;
+ }
+ .logo{
+   display: flex; 
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   text-decoration: none;
+ }
+ .signNav{
+    display: flex;
+ }
+ .newIdea{
+    text-align: end;
+    margin-top: 5px;
+ }
+
  .flash-message {
      border-radius: 5px;
      padding: 8px;

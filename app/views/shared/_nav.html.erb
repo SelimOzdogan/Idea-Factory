@@ -1,29 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <ul class="navbar-nav">
-        <div class="linksNav">
-            <li class="nav-item">
-                <%= link_to 'Idea Factory', root_path , class: 'navbar-brand' %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'New Idea', new_idea_path, class:'nav-link' %>
-            </li>
+<nav class="navbar">
+    <div class="linksNav">
+        <div class="left">
+            <div class="logo">
+                <a href="<%= root_path %>" </a>
+                    <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Noun_project_566.svg/860px-Noun_project_566.svg.png"
+                            width="30" class="d-inline-block align-top" alt="">
+                    </div>
+                    <div>
+                        Idea Factory
+                    </div>
+                </a>
+            </div>
         </div>
-        <div class="signNav">
-            <% if user_signed_in? %>
-            <li class="nav-item userName">
-                <%= link_to current_user.name, edit_user_path(current_user), class: '' %>                
-            </li>
-            <li class="nav-item">
-                <%= link_to 'Logout', session_path, method: :delete, class: 'btn btn-outline-success' %>
-            </li>
-            <% else %>
-            <li class="nav-item">
-                <%= link_to 'Sign In', new_session_path, class: 'btn btn-outline-success' %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'Sign Up', new_user_path, class: 'btn btn-outline-success' %>
-            </li>
-            <% end %>
+        <div class="right">
+            <div class="signNav">
+                <% if user_signed_in? %>
+                <div class="userName">
+                    <%= link_to current_user.name, edit_user_path(current_user), class: '' %>
+                </div>
+                <div>
+                    <%= link_to 'Logout', session_path, method: :delete, class: 'btn btn-outline-success' %>
+                </div>
+                <% else %>
+                <div>
+                    <%= link_to 'Sign In', new_session_path, class: 'btn btn-outline-success' %>
+                </div>
+                <div>
+                    <%= link_to 'Sign Up', new_user_path, class: 'btn btn-outline-success' %>
+                </div>
+                <% end %>
+            </div>
+            <div class="newIdea">
+                <%= link_to 'New Idea', new_idea_path, class:'btn btn-outline-primary' %>
+            </div>
         </div>
-    </ul>
+    </div>
 </nav>
