@@ -1,13 +1,27 @@
 <div class="ideas">
     <% @ideas.each do |idea| %>
-    <div class="idea">
-        <div class="ideatitle"><%= idea.title %></div>
-        <div class="ideadescription"><%= idea.description %></div>
-        <div class="ideafooter">
-            <div class="ideaauthor"></div>
-            <div class="idealikes"></div>
-            <div class="ideanumbers"></div>
+    <a href="/ideas/<%= idea.id %>">
+        <div class="idea">
+            <div class="ideatitle"><%= idea.title %></div>
+            <div class="ideadescription"><%= idea.description %></div>
+            <div class="ideafooter">
+                <div class="ideaauthor">by <%= idea.user.name %></div>
+                <div class="idealikes">button</div>
+                <div class="ideanumbers"><%# idea.likes.count %></div>
+            </div>
+            <div class="reviews">
+                <% idea.reviews.each do |review| %>
+                <div class="review">
+                    <div class="reviewbody">
+                        <p><%= review.body %></p>
+                    </div>
+                    <div class="reviewauthor">
+                        by <%= review.user.name %>
+                    </div>
+                </div>
+                <% end %>
+            </div>
         </div>
-    </div>
+    </a>
     <% end %>
 </div>

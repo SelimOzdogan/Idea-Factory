@@ -6,13 +6,43 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Review.destroy_all
 Idea.destroy_all
 
-5.times do
-  p = Idea.create({
-    title: Faker::Lorem.question,
-    description: Faker::Hacker.say_something_smart,
+password = 1
+User.create({
+  name: "Selim Ozdogan",
+  email: "selimozdogan@hotmail.com",
+  password: password.to_s,
+})
+4.times do
+  password += 1
+  User.create({
+    name: Faker::Name.first_name + " " + Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: password.to_s,
   })
 end
 
-puts "Created #{Idea.count} Posts"
+users = User.all
+
+10.times do
+  i = Idea.create({
+    title: Faker::Lorem.question,
+    description: Faker::Hacker.say_something_smart,
+    user: users.sample,
+  })
+  if i.valid?
+    rand(0..5).times.each do
+      Review.create(
+        body: Faker::Hacker.say_something_smart,
+        idea: i,
+        user: users.sample,
+      )
+    end
+  end
+end
+puts "Created #{Idea.count} Ideas"
+puts "Created #{Review.count} Reviews"
+puts "Created #{User.count} Users"

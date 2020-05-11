@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="navbar-nav">
+        <div class="linksNav">
+            <li class="nav-item">
+                <%= link_to 'Idea Factory', root_path , class: 'navbar-brand' %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'New Idea', new_idea_path, class:'nav-link' %>
+            </li>
+        </div>
+        <div class="signNav">
+            <% if user_signed_in? %>
+            <li class="nav-item userName">
+                <%= link_to current_user.name, edit_user_path(current_user), class: '' %>                
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Logout', session_path, method: :delete, class: 'btn btn-outline-success' %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+                <%= link_to 'Sign In', new_session_path, class: 'btn btn-outline-success' %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Sign Up', new_user_path, class: 'btn btn-outline-success' %>
+            </li>
+            <% end %>
+        </div>
+    </ul>
+</nav>

@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+ .flash-message {
+     border-radius: 5px;
+     padding: 8px;
+   }
+   .flash-notice {
+      color: darkolivegreen;
+      background-color: palegreen;
+   }
+   .flash-warning {
+      color: darkolivegreen;
+      background-color: yellow;
+   }
+   .flash-alert {
+      color:whitesmoke;
+   background-color: red;  
+}
