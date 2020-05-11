@@ -7,6 +7,7 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all.order(updated_at: :desc)
+    @likes = Like.where(user: current_user)
   end
 
   def new

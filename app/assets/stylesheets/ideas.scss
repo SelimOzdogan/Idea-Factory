@@ -26,9 +26,13 @@
     display: flex;
     justify-content: space-between;
 }
-.footerLeft{
+.footerLeft, .footerRight {
     display: flex;
 }
 .idealikes{
     margin-left: 10px;
+}
+.between{
+    margin-left: 5px;
+    margin-right: 5px;
 }

@@ -15,5 +15,13 @@ class Ability
     can(:destroy, Review) do |review|
       review.user == user
     end
+
+    can(:like, Idea) do |idea|
+      user.present? && idea.user != user
+    end
+
+    can(:destroy, Like) do |like|
+      like.user == user
+    end
   end
 end

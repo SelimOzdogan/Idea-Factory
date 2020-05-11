@@ -1,20 +1,29 @@
 <div class="ideas">
     <% @ideas.each do |idea| %>
-    <a href="/ideas/<%= idea.id %>">
-        <div class="idea">
-            <div class="ideatitle"><%= idea.title %></div>
-            <div class="ideadescription"><%= idea.description %></div>
-            <div class="ideafooter">
-                <div class="footerLeft">
-                    <div class="ideaauthor">by <%= idea.user.name %></div>
-                    <div class="idealikes">button</div>
-                </div>
-                <div class="footerRight">
-                    <div class="reviewsCount">Reviews: <%= idea.reviews.count %></div>
-                    <div class="likesCount"><%# idea.likes.count %></div>
+    <div class="idea">
+        <div class="ideatitle">
+            <%= link_to( idea.title, idea_path(idea), method: :delete )%>
+        </div>
+        <div class="ideadescription"><%= idea.description %></div>
+        <div class="ideafooter">
+            <div class="footerLeft">
+                <div class="ideaauthor">by <%= idea.user.name %></div>
+                <div class="idealikes">
+                    <% @like = @likes.where(idea: idea).first %>
+                    <% if @like.present? %>
+                        <%= link_to( "Unlike", like_path(@like), method: :delete )%>
+                    <% else %>
+                        <%= link_to( "Like", idea_likes_path(idea), method: :post )%>
+                    <% end %>
                 </div>
             </div>
+            <div class="footerRight">
+                <div class="reviewsCount">Reviews: <%= idea.reviews.count %></div>
+                <div class="between">|</div>
+                <div class="likesCount">Likes: <%= idea.likes.count %></div>
+            </div>
         </div>
-    </a>
+    </div>
+
     <% end %>
 </div>
