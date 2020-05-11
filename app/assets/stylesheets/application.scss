@@ -16,6 +16,25 @@
 
  @import "bootstrap";
 
+ .flash-message {
+   border-radius: 5px;
+   padding: 8px;
+ }
+ .flash-notice {
+    color: darkolivegreen;
+    background-color: palegreen;
+ }
+ .flash-warning {
+    color: darkolivegreen;
+    background-color: yellow;
+ }
+ .flash-alert {
+    color:whitesmoke;
+ background-color: red;  
+}
+
+
+
 .linksNav{
    display: flex;
    justify-content: space-between;
@@ -36,20 +55,10 @@
     text-align: end;
     margin-top: 5px;
  }
+ .userName{
+    color: silver;
+    margin-right: 10px;
+    font-size: 20px;
+ }
 
- .flash-message {
-     border-radius: 5px;
-     padding: 8px;
-   }
-   .flash-notice {
-      color: darkolivegreen;
-      background-color: palegreen;
-   }
-   .flash-warning {
-      color: darkolivegreen;
-      background-color: yellow;
-   }
-   .flash-alert {
-      color:whitesmoke;
-   background-color: red;  
-}
+ 

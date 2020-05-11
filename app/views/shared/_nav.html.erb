@@ -17,7 +17,8 @@
             <div class="signNav">
                 <% if user_signed_in? %>
                 <div class="userName">
-                    <%= link_to current_user.name, edit_user_path(current_user), class: '' %>
+                    <%= current_user.name %>
+                    <%# link_to current_user.name, edit_user_path(current_user), class: '' %>
                 </div>
                 <div>
                     <%= link_to 'Logout', session_path, method: :delete, class: 'btn btn-outline-success' %>

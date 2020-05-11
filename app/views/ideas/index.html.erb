@@ -5,21 +5,14 @@
             <div class="ideatitle"><%= idea.title %></div>
             <div class="ideadescription"><%= idea.description %></div>
             <div class="ideafooter">
-                <div class="ideaauthor">by <%= idea.user.name %></div>
-                <div class="idealikes">button</div>
-                <div class="ideanumbers"><%# idea.likes.count %></div>
-            </div>
-            <div class="reviews">
-                <% idea.reviews.each do |review| %>
-                <div class="review">
-                    <div class="reviewbody">
-                        <p><%= review.body %></p>
-                    </div>
-                    <div class="reviewauthor">
-                        by <%= review.user.name %>
-                    </div>
+                <div class="footerLeft">
+                    <div class="ideaauthor">by <%= idea.user.name %></div>
+                    <div class="idealikes">button</div>
                 </div>
-                <% end %>
+                <div class="footerRight">
+                    <div class="reviewsCount">Reviews: <%= idea.reviews.count %></div>
+                    <div class="likesCount"><%# idea.likes.count %></div>
+                </div>
             </div>
         </div>
     </a>

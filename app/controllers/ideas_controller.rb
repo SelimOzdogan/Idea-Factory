@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  # before_action :authenticated_user!, except: [:index, :show]
+   before_action :authenticated_user!, except: [:index, :show]
 
   # # before_action :authorize!, only: [:edit, :update, :destroy]
 
@@ -54,7 +54,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :description, :user)
+    params.require(:idea).permit(:title, :description)
   end
 
   def find_idea

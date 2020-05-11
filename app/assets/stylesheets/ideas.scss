@@ -4,4 +4,31 @@
 
 .idea{
     border-top: solid black 2px;
+    color: gray;
+    padding: 10px;
+}
+.ideas{
+    margin: 10px;
+ }
+  .ideatitle{
+     color: black;
+     font-weight: bold;
+  }
+  .ideaauthor{
+      color: silver;
+    }
+    
+    .reviews{
+        padding: 10px;
+    }
+    .ideafooter{
+        margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.footerLeft{
+    display: flex;
+}
+.idealikes{
+    margin-left: 10px;
 }

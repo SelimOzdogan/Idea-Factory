@@ -45,7 +45,7 @@
       <p style="margin-bottom: 0;"><%= review.body %></p>
       <p style="margin-bottom: 10px;">
         <small style="color:silver; border-bottom: silver dotted 1px;">
-          reviewed by <%= review.user&.name %>
+          by <%= review.user&.name %>
           <%= distance_of_time_in_words_to_now(review.updated_at)%> ago
         </small>
           <% if can? :destroy, review %>
@@ -64,3 +64,4 @@
   </ul>
   <% end %>
 </div>
+
