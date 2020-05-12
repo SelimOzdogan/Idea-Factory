@@ -1,9 +1,8 @@
 class IdeasController < ApplicationController
-   before_action :authenticated_user!, except: [:index, :show]
-
-  # # before_action :authorize!, only: [:edit, :update, :destroy]
+  before_action :authenticated_user!, except: [:index, :show]
 
   before_action :find_idea, only: [:show, :edit, :update, :destroy]
+  before_action :authorize!, only: [:edit, :update]
 
   def index
     @ideas = Idea.all.order(updated_at: :desc)
@@ -32,7 +31,7 @@ class IdeasController < ApplicationController
   def update
     if !can?(:update, @idea)
       flash[:warning] = "You can't update a idea you don't own"
-      redirect_to root_path
+      redirect_to ideas_path
     else
       if @idea.update idea_params
         redirect_to idea_path(@idea)
@@ -45,7 +44,7 @@ class IdeasController < ApplicationController
   def destroy
     if !can?(:destroy, @idea)
       flash[:warning] = "You can't delete a idea you don't own"
-      redirect_to root_path
+      redirect_to ideas_path
     else
       @idea.destroy
       redirect_to ideas_path
@@ -60,5 +59,9 @@ class IdeasController < ApplicationController
 
   def find_idea
     @idea = Idea.find params[:id]
+  end
+
+  def authorize!
+    redirect_to ideas_path, alert: "access denied" unless can? :update, @idea
   end
 end

@@ -2,7 +2,7 @@
     <% @ideas.each do |idea| %>
     <div class="idea">
         <div class="ideatitle">
-            <%= link_to( idea.title, idea_path(idea), method: :delete )%>
+            <%= link_to( idea.title, idea_path(idea) )%>
         </div>
         <div class="ideadescription"><%= idea.description %></div>
         <div class="ideafooter">
