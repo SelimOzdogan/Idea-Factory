@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def authenticated_user!
     unless user_signed_in?
       flash[:alert] = "You must sign in or sign up first"
-      redirect_to root_path
+      redirect_to ideas_path
     end
   end
 
